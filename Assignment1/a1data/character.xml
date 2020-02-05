@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!-- hierachrical definition of a character -->
+<doc>
+    <node type="FreeJoint" name="root">
+    	
+    	
+    	<node type="HingeJoint" name="llegj" position="1 0 0" axis = "1 0 0">
+        	<geom type="Box" name="lleg" center="0 -1 0" scale="0.4 2 0.4" color = "0 1 1"/>
+        	
+        	<node type="KneeJoint" name="lkneej" position="0 -2 0" axis = "1 0 0">
+        		<geom type="Box" name="lcalf" center="0 -1 0" scale="0.2 2 0.2" color = "1 0 0" />
+        	</node>
+        	
+    	</node>
+    	
+    	
+    	<node type="HingeJoint" name="rlegj" position="-1 0 0"
+    		axis="1 0 0">
+    		<geom center="0 -1 0" name="rleg" scale="0.4 2 0.4" type="Box" color = "0 1 1"></geom>
+    		
+    		<node type="KneeJoint" name="rkneej" position="0 -2 0" axis = "1 0 0">
+        		<geom type="Box" name="rcalf" center="0 -1 0" scale="0.2 2 0.2" color = "1 0 0"/>
+        	</node>
+    		
+    	</node>
+    	
+    	
+    	<node type="HingeJoint" name="waistj" position="0 0 0" axis="1 0 0">
+	    	<geom type="Box" name="body" center="0 1.5 0" scale="2 3 1" color = "0 1 0"/>
+	    	
+	    	
+	    	<node axis="0 0 1" name="neck" position="0 3 0" type="NeckJoint">
+	    		<geom center="0 1 0" name="head" scale="0.7 1 0.5" type="Sphere"></geom></node>
+	    	
+	    	
+	    	<node name="lshoulderj" position="1 2.7 0" type="LShoulderJoint">
+	    		<geom center="0.1 -0.35 0" name="lsarm" type="Box" color = "0 0 1"
+	    			scale="0.4 1 0.4" >
+	    		</geom>
+	    		
+	    		<node axis="1 0 0" name="lelbowj" position="0 -1 0" type="ElbowJoint">
+	    			<geom center="0.1 -0.35 0" name="learm" scale="0.2 1 0.2" type="Box" color = "0.5 0.5 0.5"></geom></node>
+	    	</node>
+	    	
+	    	
+	    	<node name="rshoulderj" position="-1 2.7 0" type="RShoulderJoint">
+	    		<geom center="-0.1 -0.35 0" name="rsarm" scale="0.4 1 0.4" type="Box" color = "0 0 1"></geom>
+	    		
+	    		<node axis="1 0 0" name="relbowj" position="0 -1 0" type="ElbowJoint">
+	    			<geom center="-0.1 -0.35 0" name="rearm" scale="0.2 1 0.2" type="Box" color = "0.5 0.5 0.5"></geom></node></node>
+	    </node>
+	    
+    </node>
+</doc>
